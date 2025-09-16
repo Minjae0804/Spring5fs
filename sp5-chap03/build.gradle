@@ -1,0 +1,26 @@
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+compileJava.options.encoding = "UTF-8"
+
+java {
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework:spring-context:5.3.39'
+}
+
+application {
+    mainClass = 'main.MainForAssembler'
+    applicationDefaultJvmArgs = [
+        '--add-opens=java.base/java.lang=ALL-UNNAMED',
+        '-Dfile.encoding=UTF-8'
+    ]
+}
